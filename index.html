@@ -11,18 +11,65 @@
 
 
 </head>
+
 <body>
-  
-<div id="choropleth_map"></div>
 
-<script type="text/javascript">
+  <div class="page">
 
-  var vis1 = "background.json";
-  var vis2 = "homework3.json";
-  vegaEmbed('#choropleth_map', vis2).then(function(result) {
-    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
-  }).catch(console.error);
-</script>
+    <!-- pure grid group -->
+    <div class="pure-g">
+      <div class="pure-u-1-1">
+        <h1>Rio Olympic visualisation</h1>
+      </div>
+    </div>
+    <!-- end pure grid group -->
 
+    <!-- pure grid group -->
+    <div class="pure-g">
+      <div class="pure-u-1-1">
+        <h2>Medals distribution across the world</h2>
+      </div>
+    </div>
+    <!-- end pure grid group -->
+
+    <!-- pure grid group -->
+    <div class="pure-g">
+      <div class="pure-u-1-1">
+        <div id = "vis1"></div>
+      </div>
+    </div>
+    <!-- end pure grid group -->
+
+    <!-- pure grid group -->
+    <div class="pure-g">
+      <div class="pure-u-1-1">
+        <h2>Gold medals of each country</h2>
+      </div>
+    </div>
+    <!-- end pure grid group -->
+
+    <!-- pure grid group -->
+    <div class="pure-g">
+      <div class="pure-u-1-1">
+        <div id = "vis2"></div>
+      </div>
+    </div>
+    <!-- end pure grid group -->
+
+
+  </div> <!-- end page -->
+
+  <script type="text/javascript">
+    var bar = "js/interactive_bar.json";
+    var choro = "js/choropleth.json";
+
+
+    vegaEmbed('#vis1', choro, { "actions": false });
+
+    vegaEmbed('#vis2', bar, { "actions": false }).then(function (result) {
+      // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+    }).catch(console.error);
+
+  </script>
 </body>
 </html>
